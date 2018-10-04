@@ -6,19 +6,55 @@
     <title>Word Guess Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="assets/javascript/game.js">
-    
-    </script>
+   
 </head>
 <body>
     <h1>The Psychic Game</h1>
     <div>
-        <h2>Guess What Letter I'm Thinking Of</h2>
+        <p>Guess What Letter I'm Thinking Of</p>
         <p id="wins-text"></p>
         <p id="loses-text"></p>
         <p id="guesses-left"></p>
         <p id="sofar"></p>
     </div>
+    <script type= text/javascript>
+    var computerChoices = ["a","b","c","d","e","f","g",
+                        "h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+var wins = 0;
+var loses = 0;
+var guess = 9;
+
+
+var winsText = document.getElementById("wins-text");
+var losesText = document.getElementById("loses-text");
+var guessesLeft = document.getElementById("guesses-left");
+var soFar = document.getElementById("sofar");
+
+document.onkeyup = function(event) {
+
+    var userGuess = event.key;
+
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+
+if ((userGuess === computerGuess))
+    {wins++;
+
+    } else if ((userGuess !== computerGuess))
+        {loses++;
+        }
+
+    
+
+}
+
+
+winsText.textContent = "wins: " + wins 
+losesText.textContent = "lose: " + loses
+guessesLeft.textContent = "Guesses Left: " + guess;
+    
+    </script>
     
 </body>
 </html>
